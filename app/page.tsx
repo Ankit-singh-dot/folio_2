@@ -1,69 +1,86 @@
-import Image from "next/image";
+import Link from "next/link";
+import { EncryptedWord, SlidingWindowWord } from "@/components/living-words";
+import { links, person } from "@/content/site";
+
+function Ext({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noreferrer" className="link">
+      {children}
+    </a>
+  );
+}
+
+function Page({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link href={href} className="link">
+      {children}
+    </Link>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="space-y-6">
+      <h1 className="text-strong">I&apos;m Ankit.</h1>
+
+      <p>
+        I write things for machines, and they understand. Junior developer at{" "}
+        <Ext href="https://thefounders.co.in/">The Founders</Ext>, previously{" "}
+        <Page href="/work">Avionyz &amp; Peak AI</Page>. Still in college till 2028.
+      </p>
+
+      <p>
+        Won{" "}
+        <span className="count text-strong" aria-label="5" role="text">
+          <span aria-hidden className="count-old count-3">
+            3
+          </span>
+          <span aria-hidden className="count-old count-4">
+            4
+          </span>
+          <span aria-hidden className="count-5">
+            5
+          </span>
+        </span>{" "}
+        <Page href="/achievements">hackathons</Page>. The best&mdash;Bennett University, 50+ teams,{" "}
+        <Page href="/projects/flow-ai">Flow AI</Page> made live phone calls on stage, first place.
+      </p>
+
+      <p>Some things I&apos;ve built:</p>
+
+      <p>
+        <Page href="/projects/aegis">AEGIS</Page>&mdash;kills ransomware mid-
+        <EncryptedWord />, restores your files.
+        <br />
+        <Page href="/projects/astrovault">AstroVault</Page>&mdash;reads every prompt before the AI
+        model does.
+        <br />
+        <Page href="/projects/codepush">CodePush</Page>&mdash;auto-commits DSA practice. 66 users.
+        <br />
+        <Page href="/projects">A few more.</Page>
+      </p>
+
+      <p>
+        I find where algorithms actually run&mdash;a <SlidingWindowWord /> is how an API
+        rate-limits you, LCS is the idea behind <code>git diff</code>&mdash;and{" "}
+        <Page href="/learning">make reels about it</Page>. I also ship{" "}
+        <Page href="/websites">websites</Page>, send{" "}
+        <Page href="/open-source">PRs to projects bigger than me</Page>, and I&apos;m currently
+        building PostConnect.
+      </p>
+
+      <p>Inspired by Ye.</p>
+
+      <p>
+        <Ext href={links.github}>GitHub</Ext> &middot;{" "}
+        <Ext href={links.linkedin}>LinkedIn</Ext> &middot;{" "}
+        <Ext href={links.instagram}>Instagram</Ext> &middot;{" "}
+        <Ext href={links.x}>X</Ext> &middot;{" "}
+        <Ext href={links.resume}>Resume</Ext> &middot;{" "}
+        <a href={`mailto:${person.email}`} className="link">
+          {person.email}
+        </a>
+      </p>
     </div>
   );
 }
