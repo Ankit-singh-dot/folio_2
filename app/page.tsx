@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { EncryptedWord, SlidingWindowWord } from "@/components/living-words";
+import { SlidingWindowWord } from "@/components/living-words";
 import { links, person } from "@/content/site";
 
 function Ext({ href, children }: { href: string; children: React.ReactNode }) {
@@ -49,15 +49,15 @@ export default function Home() {
       <p>Some things I&apos;ve built:</p>
 
       <p>
-        <Page href="/projects/aegis">AEGIS</Page>&mdash;kills ransomware mid-
-        <EncryptedWord />, restores your files.
+        <Page href="/projects/codepush">CodePush</Page>&mdash;auto-commits DSA practice. 66 users.
+        <br />
+        <Page href="/projects/flow-ai">Flow AI</Page>&mdash;AI voice agents calling leads in
+        parallel.
         <br />
         <Page href="/projects/astrovault">AstroVault</Page>&mdash;reads every prompt before the AI
         model does.
         <br />
-        <Page href="/projects/codepush">CodePush</Page>&mdash;auto-commits DSA practice. 66 users.
-        <br />
-        <Page href="/projects">A few more.</Page>
+        <Page href="/projects">AEGIS, and a few more.</Page>
       </p>
 
       <p>
