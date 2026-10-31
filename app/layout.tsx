@@ -20,6 +20,28 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: person.name, template: `%s | ${person.name}` },
   description: person.description,
+  openGraph: {
+    title: person.name,
+    description: person.description,
+    url: siteUrl,
+    siteName: person.name,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: person.name,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: person.name,
+    description: person.description,
+    images: ["/og-image.jpg"],
+  },
 };
 
 // Runs before first paint, so a saved dark theme never flashes white.

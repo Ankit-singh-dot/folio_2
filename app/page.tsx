@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SlidingWindowWord } from "@/components/living-words";
 import { links, person } from "@/content/site";
@@ -21,7 +22,17 @@ function Page({ href, children }: { href: string; children: React.ReactNode }) {
 export default function Home() {
   return (
     <div className="space-y-6">
-      <h1 className="text-strong">I&apos;m Ankit.</h1>
+      <div className="flex items-center gap-3.5">
+        <Image
+          src="/avatar.webp"
+          alt={person.name}
+          width={52}
+          height={52}
+          priority
+          className="size-13 shrink-0 rounded-full object-cover ring-1 ring-black/10 dark:ring-white/10"
+        />
+        <h1 className="text-strong text-xl font-medium tracking-tight">I&apos;m Ankit.</h1>
+      </div>
 
       <p>
         I write things for machines, and they understand. Junior developer at{" "}
